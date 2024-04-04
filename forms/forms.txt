@@ -1,0 +1,65 @@
+react techniques for managing forms:
+-state management
+-event handling
+-form validation
+
+*Remember
+function x (a,b){
+
+} 
+x - is a component 
+a,b - are props 
+- component receives the argument as a a props object
+
+Handeling form data x2 ways:
+
+- controlled componenets
+-- via useState hook
+-- form elements derive value from the react state
+-- value of elements is stored in state 
+- uncontrolled componenets 
+-- via DOM
+
+contolled continued:
+- you need to use value prop to set value of form elements 
+- then need to use onChange event to handle change to value  
+
+import {useState} from 'react;
+
+export default function ControlledComponent() {
+    const [inputValue, setInputValue] = useState('')// value props setting the inital value of the form elements before state then needs to be updated with new value
+    //useState hook deines a state variable (inputValue) and state update function (setInputValue)
+    const handleChange = (event) => {               // we are now intorducing onChange event? 
+        //the handleChange function updates the inputValue, the updated new value is reflected in the state
+        setInputValue(event.target.value);//event contains info about the event that occured, event.target relates to element that triggered the event, this case input field, event.target.value accesses value of input fieldwhen onChange event triggered.
+    //as user enters characters into input field the handle Change function updates state variable using setInputValue function
+    };
+
+
+retrun (
+    <form>
+    <label>Input Value:
+    <input type="text" value={inputValue} onChange={handleChange} />
+    </label>
+    <p>Input Value: {inputValue}</p>
+    </form>
+)};
+
+code without notes:
+
+export default function ControlledComponent() {
+    const [inputValue, setInputValue] = useState('')
+    const handleChange = (event) => {               
+        setInputValue(event.target.value);//event contains info about the event that occured, event.target relates to element that triggered the event, this case input field, event.target.value accesses value of input fieldwhen onChange event triggered.
+    };
+
+
+retrun (
+    <form>
+    <label>Input Value:
+    <input type="text" value={inputValue} onChange={handleChange} />
+    </label>
+    <p>Input Value: {inputValue}</p>
+    </form>
+)};
+
