@@ -403,3 +403,104 @@ const smallerNums = nums.map((num) => num - 5);
 
 // Choose a method that will return a boolean value
 nums.sum((num) => num < 0);
+
+//object methods
+const retreatMessage =
+	"We no longer wish to conquer your planet. It is full of dogs, which we do not care for.";
+
+// Write your code below
+const alienShip = {
+	retreat() {
+		console.log(retreatMessage);
+	},
+	takeOff() {
+		console.log("Spim... Borp... Glix... Blastoff!");
+	},
+};
+
+alienShip.retreat();
+alienShip.takeOff();
+
+//nested objects
+let spaceship = {
+	passengers: null,
+	telescope: {
+		yearBuilt: 2018,
+		model: "91031-XLT",
+		focalLength: 2032,
+	},
+	crew: {
+		captain: {
+			name: "Sandra",
+			degree: "Computer Engineering",
+			encourageTeam() {
+				console.log("We got this!");
+			},
+			"favorite foods": ["cookies", "cakes", "candy", "spinach"],
+		},
+	},
+	engine: {
+		model: "Nimbus2000",
+	},
+	nanoelectronics: {
+		computer: {
+			terabytes: 100,
+			monitors: "HD",
+		},
+		"back-up": {
+			battery: "Lithium",
+			terabytes: 50,
+		},
+	},
+};
+
+let capFave = spaceship.crew.captain["favorite foods"][0];
+console.log(capFave);
+spaceship.passengers = [{ name: "drey" }, { nameTw0: "anthony" }];
+console.log(spaceship.passengers[0].name);
+const firstPassenger = spaceship.passengers[0];
+
+//looping through objects with a for in loop
+let spaceship = {
+	crew: {
+		captain: {
+			name: "Lily",
+			degree: "Computer Engineering",
+			cheerTeam() {
+				console.log("You got this!");
+			},
+		},
+		"chief officer": {
+			name: "Dan",
+			degree: "Aerospace Engineering",
+			agree() {
+				console.log("I agree, captain!");
+			},
+		},
+		medic: {
+			name: "Clementine",
+			degree: "Physics",
+			announce() {
+				console.log(`Jets on!`);
+			},
+		},
+		translator: {
+			name: "Shauna",
+			degree: "Conservation Science",
+			powerFuel() {
+				console.log("The tank is full!");
+			},
+		},
+	},
+};
+
+// Write your code below
+for (let crewMemberRole in spaceship.crew) {
+	console.log(`${crewMemberRole}: ${spaceship.crew[crewMemberRole].name}`);
+}
+
+for (let crewMemberName in spaceship.crew) {
+	console.log(
+		`${spaceship.crew[crewMemberName].name}: ${spaceship.crew[crewMemberName].degree}`,
+	);
+}
