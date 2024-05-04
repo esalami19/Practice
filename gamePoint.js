@@ -1,6 +1,6 @@
 function points(games) {
 	//create condition with return
-	let newGames = Number.parseInt(games, 3);
+	const newGames = Number.parseInt(games, 3);
 	console.log(newGames);
 	// let result0;
 	// let result1;
