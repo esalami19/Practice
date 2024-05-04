@@ -5,7 +5,7 @@ function removeSmallest(numbers) {
 	const minNum = Math.min(...numbers);
 	const newArray = [];
 	const minArray = [];
-	const minNewArray;
+	let minNewArray;
 	for (let i = 0; i < numbers.length; i++) {
 		if (numbers[i] !== minNum) {
 			newArray.push(numbers[i]);
@@ -18,8 +18,6 @@ function removeSmallest(numbers) {
 		if (minArray.length !== 0) {
 			minNewArray = minArray.splice(1);
 			newArray.push(...minNewArray);
-			return newArray;
-		} else {
 			return newArray;
 		}
 	}
